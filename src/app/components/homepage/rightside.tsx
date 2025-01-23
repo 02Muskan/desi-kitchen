@@ -1,97 +1,75 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 const Rightside = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const circleColors = ["#F56C6C", "#E6A23C", "#67C23A", "#909399", "#409EFF"];
+
+    const thaliPositions = [
+        { left: "10%", top: "70%" },
+        { left: "28%", top: "32%" },
+        { left: "50%", top: "20%" },
+        { left: "73%", top: "34%" },
+        { left: "90%", top: "70%" },
+    ];
+
+    const thaliImages = [
+        "/images/ThaliOne.png",
+        "/images/Thalitwo.png",
+        "/images/Thalithree.png",
+        "/images/Thalifour.png",
+        "/images/Thalitwo.png",
+    ];
+
+    const rotateThalis = (direction) => {
+        setCurrentIndex((prevIndex) => {
+            if (direction === "right") {
+                return (prevIndex + 1) % thaliImages.length;
+            } else {
+                return (prevIndex - 1 + thaliImages.length) % thaliImages.length;
+            }
+        });
+    };
+
     return (
-        <div className="relative w-full h-[800px] flex items-center justify-center">
+        <div className=" h-[800px] flex items-center justify-center">
             <div
-                className="absolute w-[700px] h-[550px] border-t-2 border-dotted border-blue-500 rounded-t-full z-0 opacity-70 bottom-10 top-28"
-                style={{ borderBottom: "none" }}
+                className="absolute  w-full h-full z-0 rounded-full opacity-90 -top-[253px] left-12"
+                style={{
+                    background: `radial-gradient(circle, ${circleColors[currentIndex]} 60%, transparent 100%)`,
+                }}
             ></div>
-            <div className="absolute w-[700px] h-[450px] flex items-center justify-center top-36">
-                <div
-                    className="absolute"
-                    style={{
-                        left: "10%",
-                        top: "70%",
-                        transform: "translate(-50%, -50%)",
-                    }}
-                >
-                    <Image
-                        src="/images/ThaliOne.png"
-                        alt="Thali 1"
-                        width={100}
-                        height={100}
-                        className="rounded-full shadow-lg"
-                    />
-                </div>
-                <div
-                    className="absolute"
-                    style={{
-                        left: "28%",
-                        top: "32%",
-                        transform: "translate(-50%, -50%)",
-                    }}
-                >
-                    <Image
-                        src="/images/ThaliOne.png"
-                        alt="Thali 2"
-                        width={100}
-                        height={100}
-                        className="rounded-full shadow-lg"
-                    />
-                </div>
-                <div
-                    className="absolute"
-                    style={{
-                        left: "50%",
-                        top: "20%",
-                        transform: "translate(-50%, -50%)",
-                    }}
-                >
-                    <Image
-                        src="/images/ThaliOne.png"
-                        alt="Thali 3"
-                        width={100}
-                        height={100}
-                        className="rounded-full shadow-lg"
-                    />
-                </div>
-                <div
-                    className="absolute"
-                    style={{
-                        left: "73%",
-                        top: "34%",
-                        transform: "translate(-50%, -50%)",
-                    }}
-                >
-                    <Image
-                        src="/images/ThaliOne.png"
-                        alt="Thali 4"
-                        width={100}
-                        height={100}
-                        className="rounded-full shadow-lg"
-                    />
-                </div>
-                <div
-                    className="absolute"
-                    style={{
-                        left: "90%",
-                        top: "70%",
-                        transform: "translate(-50%, -50%)",
-                    }}
-                >
-                    <Image
-                        src="/images/ThaliOne.png"
-                        alt="Thali 5"
-                        width={100}
-                        height={100}
-                        className="rounded-full shadow-lg"
-                    />
-                </div>
+            <div className="absolute w-[700px] h-[450px] flex items-center justify-center top-[10rem]">
+                {thaliPositions.map((position, index) => {
+                    const adjustedIndex = (index - currentIndex + thaliImages.length) % thaliImages.length;
+
+                    return (
+                        <div
+                            key={index}
+                            className="absolute transition-all duration-500"
+                            style={{
+                                left: thaliPositions[adjustedIndex].left,
+                                top: thaliPositions[adjustedIndex].top,
+                                transform: "translate(-50%, -50%)",
+                                opacity: adjustedIndex < thaliPositions.length ? 1 : 0,
+                            }}
+                        >
+                            <Image
+                                src={thaliImages[index]}
+                                alt={`Thali ${index + 1}`}
+                                width={100}
+                                height={100}
+                                className="rounded-full shadow-lg"
+                            />
+                        </div>
+                    );
+                })}
             </div>
-            <div className="absolute flex items-center justify-center gap-4 bottom-20">
-                <div className="flex items-center">
+            <div className="relative flex items-center justify-center gap-4 -bottom-[10rem]">
+                <div
+                    className="flex items-center cursor-pointer"
+                    onClick={() => rotateThalis("left")}
+                >
                     <Image
                         src="/images/Ellipse 9.png"
                         alt="Left Spoon"
@@ -105,17 +83,22 @@ const Rightside = () => {
                         height={80}
                     />
                 </div>
-                <button className="px-6 py-3 bg-yellow-400 text-blue-900 font-bold rounded-full hover:bg-yellow-500 transition">
-                    Explore Now
-                </button>
-                <Image
-                    src="/images/ThaliOne.png"
-                    alt="Thali 1"
-                    width={100}
-                    height={100}
-                    className="rounded-full shadow-lg"
-                />
-                <div className="flex items-center">
+                <div className="relative flex items-center">
+                    <Image
+                        src={thaliImages[currentIndex]}
+                        alt="Thali"
+                        width={200}
+                        height={200}
+                        className="absolute -top-40 left-1/2 transform -translate-x-1/2 rounded-full shadow-lg transition-all duration-500"
+                    />
+                    <button className="px-6 py-3 bg-yellow-400 text-blue-900 font-bold rounded-full hover:bg-yellow-500 transition relative z-10">
+                        Explore Now
+                    </button>
+                </div>
+                <div
+                    className="flex items-center cursor-pointer"
+                    onClick={() => rotateThalis("right")}
+                >
                     <Image
                         src="/images/Vector 2.png"
                         alt="Right Handle"
