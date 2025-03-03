@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.card-gradient {
+    --angle: 45deg; 
+    background: linear-gradient(var(--angle), #f7854b, #f2ca37)
+}
+html.has-scroll-smooth {
+    overflow: hidden;
+}
+
+html.has-scroll-dragging {
+    user-select: none;
+}
+
+[data-scroll-container] {
+    min-height: 100vh; 
+    will-change: transform;
+}
+
+[data-scroll-section] {
+    position: relative;
+    will-change: transform;
+}
+
+html, body {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+[data-scroll-container] {
+    will-change: transform;
+}
+

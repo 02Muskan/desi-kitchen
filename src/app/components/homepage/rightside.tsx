@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Rightside = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const circleColors = ["#F56C6C", "#E6A23C", "#67C23A", "#909399", "#409EFF"];
+    const circleColors = ["#C14600", "#FF9D23", "#FF8343", "#DEAA79", "#FA4032"];
 
     const thaliPositions = [
         { left: "10%", top: "70%" },
@@ -32,14 +32,14 @@ const Rightside = () => {
     };
 
     return (
-        <div className=" h-[800px] flex items-center justify-center">
+        <div className="h-[920px] flex items-center justify-center">
             <div
-                className="absolute  w-full h-full z-0 rounded-full opacity-90 -top-[253px] left-12"
+                className="absolute  w-[90%] h-[780px] rounded-full -top-[220px] left-28"
                 style={{
-                    background: `radial-gradient(circle, ${circleColors[currentIndex]} 60%, transparent 100%)`,
+                    background: `radial-gradient(circle, ${circleColors[currentIndex]} 80%, transparent 20%)`,
                 }}
             ></div>
-            <div className="absolute w-[700px] h-[450px] flex items-center justify-center top-[10rem]">
+            <div className="absolute w-[700px] h-[450px] flex items-center justify-center top-[11rem] right-[5rem]">
                 {thaliPositions.map((position, index) => {
                     const adjustedIndex = (index - currentIndex + thaliImages.length) % thaliImages.length;
 
@@ -65,7 +65,7 @@ const Rightside = () => {
                     );
                 })}
             </div>
-            <div className="relative flex items-center justify-center gap-4 -bottom-[10rem]">
+            <div className="relative flex items-center justify-center gap-4 -bottom-[14rem] -right-[3rem]">
                 <div
                     className="flex items-center cursor-pointer"
                     onClick={() => rotateThalis("left")}

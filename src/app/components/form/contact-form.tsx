@@ -33,17 +33,17 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-transparent">
+        <div className="flex items-center justify-center min-h-screen bg-transparent border rounded-[70px]">
 
-            <div className="w-[550px] h-[550px] bg-white border-2 border-gradient-to-r from-red-400 to-yellow-500   rounded-full flex items-center justify-center">
+            <div className="w-[550px] h-[550px] bg-[#FFF8DB] border-2 border-gradient-to-r from-red-400 to-yellow-500   rounded-full flex items-center justify-center">
 
                 <div
                     onSubmit={handleSubmit}
-                    className="w-[95%] h-[95%] bg-gradient-to-r from-yellow-300 via-yellow-400 to-orange-400 rounded-full flex flex-col items-center   gap-6 p-4 shadow-md"
+                    className="size-[97%] bg-gradient-to-r from-yellow-300 via-yellow-400 to-orange-400 rounded-full flex flex-col items-center   gap-6 p-4 shadow-md"
                 >
-                    <h2 className="text-xl font-bold text-blue-900 px-4">Order Form</h2>
-                    <div className="w-[90%] px-10">
-                        <label className="block font-bold text-gray-700">Name</label>
+                    <h2 className="text-xl font-bold text-[#607274] px-4">Order Form</h2>
+                    <div className="w-[90%] p-3">
+                        <label className="block font-bold text-gray-700 px-5">Name</label>
                         <input
                             type="text"
                             name="name"
