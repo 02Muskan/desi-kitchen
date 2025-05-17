@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 
 const About: React.FC = () => {
     return (
-        <div className="relative flex items-center justify-between h-screen bg-gradient-to-br from-yellow-300 to-yellow-100 border rounded-[70px] px-8 py-16">
+        <div className="relative flex items-center justify-between h-[70vh] bg-gradient-to-br from-yellow-300 to-yellow-100 border rounded-[70px] px-2 py-4">
             <div className="flex flex-col space-y-8 w-1/2">
                 <h1 className="text-5xl font-bold text-gray-800">About Us</h1>
                 <div className="space-y-6 ">

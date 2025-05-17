@@ -1,122 +1,115 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
-import Card from "./hovercard";
+import { ShoppingCart } from "lucide-react";
+import CartDrawer from "./addtocart";
+
+const menuItems = [
+    {
+        name: "Desi Special Thali",
+        image: "/images/ThaliOne.png",
+        description: "A wholesome meal with dal, roti, sabzi, rice, salad & sweet.",
+        align: "right",
+    },
+    {
+        name: "Daily Veg Thali",
+        image: "/images/Thalithree.png",
+        description: "Rotating menu with simple yet tasty North Indian dishes.",
+        align: "left",
+    },
+    {
+        name: "Mini Samosa",
+        image: "/images/Thalithree.png",
+        description: "Crispy bite-sized samosas filled with spiced potatoes.",
+        align: "right",
+    },
+    {
+        name: "Bhakarwadi",
+        image: "/images/Thalithree.png",
+        description: "Spicy and sweet crispy rolls – a perfect tea-time snack.",
+        align: "left",
+    },
+    {
+        name: "Mathri",
+        image: "/images/Thalithree.png",
+        description: "Traditional flaky and salty snack popular in North India.",
+        align: "right",
+    },
+    {
+        name: "Paneer Sandwich",
+        image: "/images/Thalithree.png",
+        description: "Soft bread with a spicy paneer filling grilled to perfection.",
+        align: "left",
+    },
+    {
+        name: "Veg Pulao",
+        image: "/images/Thalithree.png",
+        description: "Aromatic rice with fresh vegetables and Indian spices.",
+        align: "right",
+    },
+    {
+        name: "Chole Bhature",
+        image: "/images/Thalithree.png",
+        description: "A hearty Punjabi combo of spicy chickpeas & fried bread.",
+        align: "left",
+    },
+];
 
 const Menu = () => {
-    const [selectedItem, setSelectedItem] = useState(null);
-    const [activeTab, setActiveTab] = useState("Thalis");
+    const [isCartOpen, setIsCartOpen] = useState(false);
 
-    const items = [
-        { id: 1, name: "Maharaja Thali", price: "$7.2", imgSrc: "/images/Thalifour.png", category: "Thalis" },
-        { id: 2, name: "Desi's Specials", price: "$6.2", imgSrc: "/images/Thalitwo.png", category: "Thalis" },
-        { id: 3, name: "Regular Thali", price: "$9.5", imgSrc: "/images/Thalithree.png", category: "Thalis" },
-        { id: 8, name: "Falhari Thali", price: "$9.5", imgSrc: "/images/Thalithree.png", category: "Thalis" },
-        { id: 4, name: "Kachori", price: "$5.0", imgSrc: "/images/Thalifour.png", category: "Snacks" },
-        { id: 5, name: "Samosa", price: "$4.5", imgSrc: "/images/Thalifour.png", category: "Snacks" },
-        { id: 6, name: "Chura Fry", price: "$10.0", imgSrc: "/images/Thalifour.png", category: "Snacks" },
-        { id: 7, name: "Khaman Dhokla", price: "$5.0", imgSrc: "/images/Thalifour.png", category: "Dessert" }
-    ];
-
-    const categories = ["Thalis", "Snacks", "Deserts"];
-
+    const handleAddToCart = () => {
+        // Add logic to add item to cart (optional)
+        setIsCartOpen(true); // open cart drawer
+    };
     return (
-        <div className="relative bg-yellow-50 py-8 px-4 flex flex-col items-center border rounded-[70px]">
-            <h2 className="text-3xl font-bold text-center text-gray-800 m-4">Specials</h2>
-            <div className="flex gap-4 mb-6">
-                {categories.map((category) => (
-                    <button
-                        key={category}
-                        className={`relative px-6 py-2 font-medium transition duration-500 ease-in-out ${activeTab === category
-                            ? "text-black"
-                            : "text-yellow-600 hover:text-orange-400"
-                            }`}
-                        onClick={() => setActiveTab(category)}
-                    >
-                        {category}
-                        {activeTab === category && (
-                            <span className="absolute left-1/2 transform -translate-x-1/2 -bottom-[4px] w-6 h-[2px] bg-orange-600"></span>
-                        )}
-                    </button>
-                ))}
-            </div>
+        <div className="bg-[#503321]  border rounded-[70px]  px-4 py-10 flex flex-col items-center font-sans relative overflow-hidden">
+            <h1 className="text-4xl font-bold text-[#f5e5b8] tracking-widest mb-16 z-10">
+                OUR MENU
+            </h1>
 
+            <div className="relative w-full max-w-4xl z-10">
+                <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-24 bg-[#e9dbb0] rounded-full z-0" />
 
-            <div className="flex overflow-x-auto gap-6 py-4">
-                {items
-                    .filter((item) => item.category === activeTab)
-                    .map((item, index) => (
-                        <motion.div
-                            key={item.id}
-                            className="card-gradient shadow-lg rounded-3xl w-48 h-64 p-4 flex flex-col relative items-center border-2 border-gray-400 transform transition-transform hover:scale-105 overflow-hidden"
-                            initial={{ opacity: 0, y: 50 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            whileHover={{ scale: 1.08 }}
-                        >
-                            {/* Gradient Hover Effect */}
-                            <motion.div
-                                className="absolute inset-0 bg-[#ffd686] opacity-0"
-                                whileHover={{ opacity: 1 }}
-                                transition={{ duration: 0.3, ease: "easeInOut" }}
-                            />
+                <div className=" relative z-10">
+                    {menuItems.map((item, index) => {
+                        const isLeft = item.align === "left";
 
-                            {/* Image Section */}
-                            <div className="absolute -top-10 -left-5 overflow-visible">
-                                <Image
-                                    src={item.imgSrc}
-                                    alt={item.name}
-                                    width={140}
-                                    height={140}
-                                    className="rounded-full"
-                                />
-                            </div>
-
-                            {/* Content Section */}
-                            <div className="relative z-10 flex flex-col items-center justify-center h-full mt-32">
-                                <h3 className="text-lg font-bold text-[#8B4513]">{item.name}</h3>
-                                <p className="text-sm font-medium text-gray-800">{item.price}</p>
-                            </div>
-
-                            {/* "See Details" Section (Now Stays Visible) */}
-                            <div className="relative z-10 mt-auto w-full flex justify-between items-center px-2">
-                                <p className="text-sm font-medium text-[#F2E6B5]">See Details</p>
-                                <button
-                                    className="w-8 h-8 bg-green-400 text-white rounded-full flex items-center justify-center"
-                                    onClick={() => setSelectedItem(item)}
+                        return (
+                            <div
+                                key={index}
+                                className={`flex justify-${isLeft ? "start left-16" : "end right-16"} w-full relative `}
+                            >
+                                <div
+                                    className={`flex ${isLeft ? "flex-row" : "flex-row-reverse"
+                                        } items-center gap-6 border-2 bg-[#7a4419] rounded-full `}
                                 >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                        className="w-4 h-4"
+                                    <Image
+                                        src={item.image}
+                                        alt={item.name}
+                                        width="128"
+                                        height="128"
+                                        className="w-32 h-32 rounded-full]"
+                                    />
+                                    <div
+                                        className={`max-w-[200px]  px-2 text-${isLeft ? "left" : "right"}`}
                                     >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M12 4v16m8-8H4"
-                                        />
-                                    </svg>
-                                </button>
+                                        <h2 className="text-xl font-semibold text-[#f5e5b8]">
+                                            {item.name}
+                                        </h2>
+                                        <p className="text-sm text-gray-300">{item.description}</p>
+                                        <button className="mt-2 bg-[#f5e5b8] text-[#503321] px-3 py-1 rounded-full text-xs hover:bg-[#fff4e6] transition flex gap-1" onClick={handleAddToCart}>
+                                            <ShoppingCart className=" size-4" />
+                                            <p className="">Add to Cart</p>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                        </motion.div>
-
-                    ))}
-            </div>
-
-            {selectedItem && (
-                <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-50 z-50">
-                    <Card
-                        name={selectedItem.name}
-                        price={selectedItem.price}
-                        imgSrc={selectedItem.imgSrc}
-                        onClose={() => setSelectedItem(null)}
-                    />
+                        );
+                    })}
                 </div>
-            )}
+            </div>
+            <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
         </div>
     );
 };

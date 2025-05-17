@@ -114,6 +114,7 @@ const LoginSignup = () => {
                                     onChange={(e) => setInputValue(e.target.value)}
                                     required
                                 />
+
                             </div>
                             {!isPhoneLogin && (
                                 <div>
@@ -161,6 +162,12 @@ const LoginSignup = () => {
                                         ? "Send OTP"
                                         : "Log In"}
                             </button>
+                            <p className="flex justify-center items-center">Didn t Have account ?
+                                <button className="text-blue-500 font-semibold ml-2" onClick={() => {
+                                    setActiveTab("signup");
+                                    resetStates();
+                                }}>Signup</button>
+                            </p>
                         </form>
                     ) : (
                         <form className="space-y-4">
@@ -223,14 +230,20 @@ const LoginSignup = () => {
                             >
                                 Sign Up
                             </button>
+                            <p className="flex justify-center items-center">Have an account?
+                                <button className="text-blue-500 font-semibold ml-2" onClick={() => {
+                                    setActiveTab("login");
+                                    resetStates();
+                                }}>Login</button>
+                            </p>
                         </form>
                     )}
                 </div>
-
-                <div className="bg-cream relative flex justify-center gap-4 py-4">
+                <div className="relative flex justify-center gap-4 py-4">
                     <div
                         className="border rounded-full w-12 h-12 flex items-center justify-center border-gray-300 shadow-md cursor-pointer"
                         onClick={() => {
+                            setActiveTab("login");
                             setIsPhoneLogin(true);
                             setStep("phone");
                             setInputValue("");
@@ -238,7 +251,13 @@ const LoginSignup = () => {
                     >
                         <IoCall className="text-green-600 text-2xl" />
                     </div>
-                    <div className="border rounded-full w-12 h-12 flex items-center justify-center border-gray-300 shadow-md">
+                    <div
+                        className="border rounded-full w-12 h-12 flex items-center justify-center border-gray-300 shadow-md cursor-pointer"
+                        onClick={() => {
+                            setActiveTab("login");
+                            setIsPhoneLogin(false);
+                        }}
+                    >
                         <Image
                             src="/images/icons8-google.svg"
                             alt="Google Icon"
@@ -247,6 +266,7 @@ const LoginSignup = () => {
                         />
                     </div>
                 </div>
+
             </div>
         </div>
     );
