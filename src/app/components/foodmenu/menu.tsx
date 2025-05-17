@@ -111,9 +111,7 @@ const Menu = () => {
             </div>
             <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
         </div>
-      )}
-    </div>
-  );
+    );
 };
 
 export default Menu;
