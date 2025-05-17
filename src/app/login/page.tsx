@@ -1,8 +1,9 @@
 import React from 'react'
 import Login from '../components/homepage/login'
+import Mainlogin from '../components/homepage/mainlogin'
 const page = () => {
     return (
-        <div><Login /></div >
+        <div className='border rounded-[70px] min-h-screen overflow-auto'><Mainlogin /></div >
     )
 }
 

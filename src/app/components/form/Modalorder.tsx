@@ -16,7 +16,7 @@ const OrderDetailsModal = ({
             <div className="w-[90%] max-w-lg bg-white rounded-lg p-6 shadow-lg">
                 <h2 className="text-lg font-bold text-blue-900 mb-4">Your Order Details</h2>
                 <ul>
-                    {orderItems.map((orderItem, index) => (
+                    {orderItems.map((orderItem: any, index: any) => (
                         <li key={index} className="flex items-center gap-4 mb-2">
                             <input
                                 type="text"

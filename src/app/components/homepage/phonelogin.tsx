@@ -13,15 +13,14 @@ const LoginSignup = () => {
         e.preventDefault();
 
         if (step === "phone") {
-            // Mock sending OTP
             alert(`OTP sent to ${inputValue}`);
             setStep("otp");
-            setInputValue(""); // Clear input for OTP
+            setInputValue("");
         } else {
-            // Mock verifying OTP
+
             if (inputValue === "1234") {
                 alert("Login successful!");
-                setShowPhoneLogin(false); // Close modal on success
+                setShowPhoneLogin(false);
             } else {
                 alert("Invalid OTP. Please try again.");
             }
