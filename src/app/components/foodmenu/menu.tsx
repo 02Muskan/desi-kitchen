@@ -14,7 +14,7 @@ const menuItems = [
 
   {
     name: "Samosa Squad",
-    image: "/images/funny-samosa.png",
+    image: "/images/ThaliOne.png",
     description: "Crispy bite-sized samosas filled with spiced potatoes.",
     align: "left",
   },
@@ -32,7 +32,7 @@ const menuItems = [
   },
   {
     name: "Maharaja King Thali",
-    image: "/images/maharaja-feast.png",
+    image: "/images/ThaliOne.png",
     description: "A royal feast loaded with every dish your stomach fears!",
     align: "right",
   },
@@ -44,7 +44,7 @@ const menuItems = [
   },
   {
     name: "Pulao Party Pack",
-    image: "/images/pulao-party.png",
+    image: "/images/ThaliOne.png",
     description: "Aromatic rice with fresh vegetables and Indian spices.",
     align: "right",
   },
@@ -65,13 +65,13 @@ const menuItems = [
   },
   {
     name: "Chhoti Kachori Bombs",
-    image: "/images/mini-kachori.png",
+    image: "/images/ThaliOne.png",
     description: "Mini kachoris that pack maximum punch. One bite, full drama!",
     align: "left",
   },
   {
     name: "Super Sandwich",
-    image: "/images/super-sandwich.png",
+    image: "/images/ThaliOne.png",
     description: "Delicious layered sandwich with fresh veggies and sauces.",
     align: "right",
   },
@@ -99,14 +99,12 @@ const Menu = () => {
             return (
               <div
                 key={index}
-                className={`flex justify-${
-                  isLeft ? "start left-16" : "end right-16"
-                } w-full relative `}
+                className={`flex justify-${isLeft ? "start left-16" : "end right-16"
+                  } w-full relative `}
               >
                 <div
-                  className={`flex ${
-                    isLeft ? "flex-row" : "flex-row-reverse"
-                  } items-center gap-6 border-2 bg-[#7a4419] rounded-full `}
+                  className={`flex ${isLeft ? "flex-row" : "flex-row-reverse"
+                    } items-center gap-6 border-2 bg-[#7a4419] rounded-full `}
                 >
                   <Image
                     src={item.image}
@@ -116,9 +114,8 @@ const Menu = () => {
                     className="w-32 h-32 rounded-full"
                   />
                   <div
-                    className={`max-w-[200px] px-2 ${
-                      isLeft ? "left" : "right ml-4 px-4 "
-                    } `}
+                    className={`max-w-[200px] px-2 ${isLeft ? "left" : "right ml-4 px-4 "
+                      } `}
                   >
                     <h2 className="text-xl font-semibold text-[#f5e5b8]">
                       {item.name}

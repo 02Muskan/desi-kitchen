@@ -6,6 +6,8 @@ import About from '../components/aboutpage/about'
 import Footer from '../components/footer/footer'
 import WhyChooseUs from '../components/aboutpage/whychooseus'
 import Reorder from '../components/foodmenu/reorder'
+import CustomerLove from '../components/footer/customerlove'
+import OfferBanner from '../components/foodmenu/offerbanner'
 
 
 const page = () => {
@@ -14,6 +16,8 @@ const page = () => {
             <Mainpage />
 
             <Reorder />
+            <div className='mb-3'><OfferBanner /></div>
+
             <Menu />
 
             <About />
@@ -21,6 +25,7 @@ const page = () => {
                 <SearchBar />
             </div>
             <WhyChooseUs />
+            <CustomerLove />
             <Footer />
 
         </div>

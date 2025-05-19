@@ -145,3 +145,17 @@ html, body {
     justify-content: center;
 }
 
+/* Custom scrollbar styling */
+.scroll-smooth::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  .scroll-smooth::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+  }
+  
+  .scroll-smooth::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  

@@ -18,13 +18,13 @@ const FavoritesSection: React.FC = () => {
     {
       id: "pizza",
       name: "Pepperoni Pizza",
-      imageUrl: "/images/namkeenss.png",
+      imageUrl: "/images/newthalione.png",
       aiHint: "Italian",
     },
     {
       id: "pasta",
       name: "Creamy Pasta",
-      imageUrl: "/images/Thalithree.png",
+      imageUrl: "/images/newthalione.png",
       aiHint: "Comfort food",
     },
   ];
@@ -32,8 +32,8 @@ const FavoritesSection: React.FC = () => {
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
 
   return (
-    <div className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <div className="py-8 bg-gray-50">
+      <div className="container mx-auto px-2">
         <h2 className="text-3xl font-bold text-center mb-12 flex items-center justify-center gap-3">
           <History className="h-8 w-8 text-orange-500" /> Reorder Your Favorites
         </h2>
@@ -54,7 +54,7 @@ const FavoritesSection: React.FC = () => {
                     alt={item.name}
                     width={300}
                     height={300}
-                    className="rounded-full overflow-hidden"
+                    className="rounded-full object-cover"
                   />
                 </div>
                 <div className="flip-card-back flex flex-col items-center justify-center border-orange-400 border-2 bg-[#ffeedd]">
