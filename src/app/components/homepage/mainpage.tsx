@@ -14,7 +14,6 @@ const FoodFastComponent = () => {
 
   return (
     <div className="h-screen w-full relative rounded-[70px] overflow-hidden fade-in">
-      {/* Background Image */}
       <Image
         src="/images/finalhoempage.png"
         alt="Background"
@@ -22,8 +21,6 @@ const FoodFastComponent = () => {
         className="object-cover z-0"
         priority
       />
-
-      {/* Sticky Top Center Menu */}
       <div className="absolute top-4 left-0 right-0 z-20 flex justify-center items-center">
         <div className="bg-[#fca23b] border border-yellow-200 rounded-full px-8 py-2 flex gap-6 items-center shadow-lg">
           <button
@@ -74,16 +71,20 @@ const FoodFastComponent = () => {
       </div>
 
       {/* Centered Buttons */}
-      <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-10 flex flex-col gap-4">
+      {/* Left Side Caption and Buttons */}
+      <div className="absolute bottom-20 left-10 z-10 flex flex-col gap-4 animate-fadeInUp transition-all duration-700 ease-in-out">
+        <p className="text-[#FFF9DC] text-xl md:text-2xl font-semibold max-w-xs">
+          Ghar jaisa khaana, maa ke haathon se bana.
+        </p>
         <button
           onClick={() => handleNavigation("/contact-form")}
-          className="px-6 py-3 bg-[#C14600] text-[#FEF9E1] font-bold rounded-3xl border-4 border-[#FFF2E1] hover:bg-[#f1ce82] hover:text-[#FFF0BD] text-sm"
+          className="px-6 py-3 bg-[#C14600] text-[#FEF9E1] font-bold rounded-3xl border-4 border-[#FFF2E1] hover:bg-[#f1ce82] hover:text-[#FFF0BD] text-sm w-fit"
         >
           Order Now
         </button>
         <button
           onClick={() => handleNavigation("/foodmenu")}
-          className="px-6 py-3 bg-[#FFCD88] text-[#6A3400] font-bold rounded-3xl border-4 border-[#FFF2E1] hover:bg-[#FFE5B4] hover:text-[#C14600] text-sm"
+          className="px-6 py-3 bg-[#FFCD88] text-[#6A3400] font-bold rounded-3xl border-4 border-[#FFF2E1] hover:bg-[#FFE5B4] hover:text-[#C14600] text-sm w-fit"
         >
           View Menu
         </button>
