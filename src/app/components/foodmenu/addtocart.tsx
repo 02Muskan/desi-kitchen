@@ -24,6 +24,13 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose, cartItems = [
         image: "/images/ThaliOne.png",
         quantity: 1,
     },
+    {
+        id: 2,
+        name: "Standard Veg Thali",
+        price: 10.99,
+        image: "/images/ThaliOne.png",
+        quantity: 1,
+    },
 ] }) => {
     const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
