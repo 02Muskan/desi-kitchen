@@ -15,11 +15,11 @@ const FoodFastComponent = () => {
   return (
     <div className="h-screen w-full relative rounded-[70px] overflow-hidden fade-in">
       <Image
-        src="/images/finalhoempage.png"
+        src="/images/cooking.png"
         alt="Background"
-        fill
         className="object-cover z-0"
-        priority
+        width={1920}
+        height={1080}
       />
       <div className="absolute top-4 left-0 right-0 z-20 flex justify-center items-center">
         <div className="bg-[#fca23b] border border-yellow-200 rounded-full px-8 py-2 flex gap-6 items-center shadow-lg">
